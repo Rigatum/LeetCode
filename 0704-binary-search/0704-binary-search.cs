@@ -5,7 +5,7 @@ public class Solution {
         int begin = 0;
         int end = nums.Length - 1;
 
-        while (end >= begin)
+        while (begin <= end)
         {
             middle = (begin + end) / 2; 
 
