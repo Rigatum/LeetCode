@@ -3,9 +3,9 @@ public class Solution {
     {
         int middle = 0;
         int begin = 0;
-        int end = nums.Length -1;
+        int end = nums.Length - 1;
 
-        while (begin <= end)
+        while (end >= begin)
         {
             middle = (begin + end) / 2; 
 
