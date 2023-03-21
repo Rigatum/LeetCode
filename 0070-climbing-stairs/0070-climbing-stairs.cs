@@ -2,7 +2,7 @@ public class Solution
 {
     public int ClimbStairs(int n) 
     {
-        return fib(n, new int[10000]);
+        return fib(n, new int[46]);
     }
     
     int fib(int n, int[] memo)
