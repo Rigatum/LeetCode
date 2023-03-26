@@ -14,35 +14,7 @@ public class Solution
 
         int p = 0;
 
-        int left2 = 0;
-        int right2 = prime_nums.Length - 1;
-
-        while (left2 <= right2)
-        {
-            int mid = (left2 + right2) / 2;
-
-            if (prime_nums[mid] > nums[0])
-                right2 = mid - 1;
-
-            else if (prime_nums[mid] < nums[0])
-                left2 = mid + 1;
-
-            else
-            {
-                if (prime_nums[mid] != nums[0])
-                    p++;
-                p = mid - 1;
-                break;
-            }
-            p = left2 - 1;
-        }
-
-        if (p >= 0 && nums[0] > nums[0] - prime_nums[p])
-        {
-            nums[0] = nums[0] - prime_nums[p];
-        }
-
-        for (int i = 1; i < nums.Length; i++)
+        for (int i = 0; i < nums.Length; i++)
         {
             int left = 0;
             int right = prime_nums.Length - 1;
@@ -65,14 +37,21 @@ public class Solution
                 p = left - 1;
             }
 
-            while (p > 0 && nums[i - 1] >= nums[i] - prime_nums[p] && i >= 0  && nums[i] > prime_nums[p])
+            if (i > 0)
             {
-                p--;
-            }
+                while (p > 0 && nums[i - 1] >= nums[i] - prime_nums[p] && i >= 0  && nums[i] > prime_nums[p])
+                {
+                    p--;
+                }
 
-            if (p >= 0 && nums[i - 1] < nums[i] - prime_nums[p])
+                if (p >= 0 && nums[i - 1] < nums[i] - prime_nums[p])
+                {
+                    nums[i] = nums[i] - prime_nums[p];
+                }
+            }
+            else if (p >= 0 && nums[0] > nums[0] - prime_nums[p])
             {
-                nums[i] = nums[i] - prime_nums[p];
+                nums[0] = nums[0] - prime_nums[p];
             }
         }
 
