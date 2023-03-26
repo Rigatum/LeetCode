@@ -11,64 +11,38 @@ public class Solution
             661,673,677,683,691,701,709,719,727,733,739,743,751,757,761,769,773,787,797,809,
             811,821,823,827,829,839,853,857,859,863,877,881,883,887,907,911,919,929,937,941,
             947,953,967,971,977,983,991,997,1009 };
-
         int p = 0;
-
-        for (int i = 0; i < nums.Length; i++)
-        {
+        for (int i = 0; i < nums.Length; i++){
             int left = 0;
             int right = prime_nums.Length - 1;
-
-            while (left <= right)
-            {
+            while (left <= right){
                 int mid = (left + right) / 2;
-
                 if (prime_nums[mid] > nums[i])
                     right = mid - 1;
-
                 else if (prime_nums[mid] < nums[i])
                     left = mid + 1;
-
-                else
-                {
+                else{
                     p = mid - 1;
                     break;
                 }
                 p = left - 1;
             }
-
-            if (i > 0)
-            {
-                while (p > 0 && nums[i - 1] >= nums[i] - prime_nums[p] && i >= 0  && nums[i] > prime_nums[p])
-                {
+            if (i > 0){
+                while (p > 0 && nums[i - 1] >= nums[i] - prime_nums[p] && i >= 0  && nums[i] > prime_nums[p]){
                     p--;
                 }
-
-                if (p >= 0 && nums[i - 1] < nums[i] - prime_nums[p])
-                {
+                if (p >= 0 && nums[i - 1] < nums[i] - prime_nums[p]){
                     nums[i] = nums[i] - prime_nums[p];
                 }
             }
-            else if (p >= 0 && nums[0] > nums[0] - prime_nums[p])
-            {
+            else if (p >= 0 && nums[0] > nums[0] - prime_nums[p]){
                 nums[0] = nums[0] - prime_nums[p];
             }
+            if (i > 0 && nums[i - 1] < nums[i])
+                continue;
+            else if (i > 0)
+                return false;
         }
-
-        bool IsSorted(int[] nums)
-        {
-            for (int i = 0; i < nums.Length - 1; i++)
-            {
-                if (nums[i] < nums[i + 1])
-                {
-                    continue;
-                }
-                else
-                    return false;
-            }
-            return true;
-        }
-
-        return IsSorted(nums);
+        return true;
     }
 }
