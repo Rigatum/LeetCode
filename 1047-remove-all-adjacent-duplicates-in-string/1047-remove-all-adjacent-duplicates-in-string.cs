@@ -16,8 +16,7 @@ public class Solution
             else
             {
                 stack.Push(s[i]);
-                if (stack.Count != 0)
-                    previous = stack.Peek();
+                previous = stack.Peek();
             }
         }
         foreach (var item in stack.Reverse())
