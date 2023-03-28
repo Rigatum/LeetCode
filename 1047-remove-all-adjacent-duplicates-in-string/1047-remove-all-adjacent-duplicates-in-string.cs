@@ -3,8 +3,8 @@ public class Solution
     public string RemoveDuplicates(string s) 
     {
         Stack<char> stack = new Stack<char>();
-        string ans = "";
-        char previous = 'w';
+        StringBuilder ans = new StringBuilder();
+        char previous;
         stack.Push(s[0]);
 
         for (int i = 1; i < s.Length; i++)
@@ -18,9 +18,9 @@ public class Solution
         }
         foreach (var item in stack.Reverse())
         {
-            ans += item;
+            ans.Append(item);
         }
 
-        return ans;
+        return ans.ToString();
     }
 }
