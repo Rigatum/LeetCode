@@ -7,14 +7,14 @@ public class Solution
 
         for(int i = 1; i < asteroids.Length; i++)
         {
-  collison: if(stack.TryPeek(out int previous) && (previous > 0  && asteroids[i] < 0))
+    repeat: if(stack.TryPeek(out int previous) && (previous > 0  && asteroids[i] < 0))
             {
                 if (Math.Abs(previous) > Math.Abs(asteroids[i]))
                     continue;
                 else if (Math.Abs(previous) < Math.Abs(asteroids[i]))
                 {
                     stack.Pop();
-                    goto collison;
+                    goto repeat;
                 }
                 else
                     stack.Pop();
