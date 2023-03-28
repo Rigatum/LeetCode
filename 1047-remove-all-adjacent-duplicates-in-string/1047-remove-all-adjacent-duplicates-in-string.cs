@@ -5,11 +5,7 @@ public class Solution
         Stack<char> stack = new Stack<char>();
         string ans = "";
         char previous = 'w';
-        if (s.Length != 0)
-        {
-            previous = s[0];
-            stack.Push(s[0]);
-        }
+        stack.Push(s[0]);
 
         for (int i = 1; i < s.Length; i++)
         {
