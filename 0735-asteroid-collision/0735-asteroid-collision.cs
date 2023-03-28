@@ -48,8 +48,7 @@ public class Solution
             else
                 stack.Push(asteroids[i]);
         }
-
-        int[] ans = stack.Reverse().ToArray();
-        return ans;
+        
+        return stack.Reverse().ToArray();;
     }
 }
