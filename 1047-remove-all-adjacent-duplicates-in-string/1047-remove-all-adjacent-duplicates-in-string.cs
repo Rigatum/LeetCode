@@ -10,13 +10,10 @@ public class Solution
         for (int i = 1; i < s.Length; i++)
         {
             if (stack.TryPeek(out previous) && s[i] == previous)
-            {
                 stack.Pop();
-            }
             else
             {
                 stack.Push(s[i]);
-                previous = stack.Peek();
             }
         }
         foreach (var item in stack.Reverse())
