@@ -2,32 +2,29 @@ public class Solution
 {
     public int[] SuccessfulPairs(int[] spells, int[] potions, long success) {
         Array.Sort(potions);
-        var ans = new int[spells.Length];
+        int[] ans = new int[spells.Length];
+
         for (int i = spells.Length-1; i >= 0; i--)
         {
-            ans[i] = Bs(spells[i]);
+            ans[i] = BinarySearch(spells[i]);
         }
         return ans;
 
-        int Bs(int s)
+        int BinarySearch(int spell)
         {
-            var l = 0;
-            var r = potions.Length-1;
+            int left = 0;
+            int right = potions.Length - 1;
 
-            while (l <= r)
+            while(left <= right)
             {
-                var m = l + (r - l) / 2;
+                int mid =  left + (right - left) / 2;
 
-                if (s * (long)potions[m] >= success)
-                {
-                    r = m-1;
-                }
+                if ((long)potions[mid] * spell >= success)
+                    right = mid - 1;
                 else
-                {
-                    l = m+1;
-                }
+                    left = mid + 1;
             }
-            return potions.Length - l;
+            return potions.Length - left;
         }
     }
 }
