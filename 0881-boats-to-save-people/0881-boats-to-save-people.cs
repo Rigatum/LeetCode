@@ -3,7 +3,7 @@ public class Solution
     public int NumRescueBoats(int[] peoples, int limit) 
     {
         List<int> peoplesList = new List<int>(peoples);
-        peoplesList.Sort((a, b) => a.CompareTo(b)); 
+        peoplesList.Sort(); 
         int ans = 0;
 
         while (peoplesList.Count > 1)
