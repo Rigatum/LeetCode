@@ -2,8 +2,8 @@ public class Solution
 {
     public int NumRescueBoats(int[] peoples, int limit) 
     {
-        Array.Sort(peoples);
         List<int> peoplesList = new List<int>(peoples);
+        peoplesList.Sort((a, b) => a.CompareTo(b)); 
         int ans = 0;
 
         while (peoplesList.Count > 1)
