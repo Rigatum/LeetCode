@@ -1,29 +1,21 @@
 public class Solution 
 {
-    public int NumRescueBoats(int[] peoples, int limit) 
+    public int NumRescueBoats(int[] people, int limit) 
     {
-        List<int> peoplesList = new List<int>(peoples);
-        peoplesList.Sort(); 
         int ans = 0;
+        int left = 0;
+        int right = people.Length - 1;
 
-        while (peoplesList.Count > 1)
+        Array.Sort(people);
+        
+        while(left <= right)
         {
-            if (peoplesList[0] + peoplesList[peoplesList.Count - 1] <= limit)
-            {
-                ans++;
-                peoplesList.Remove(peoplesList[0]);
-                peoplesList.Remove(peoplesList[peoplesList.Count - 1]);
-            }
-            else
-            {
-                peoplesList.Remove(peoplesList[peoplesList.Count - 1]);
-                ans++;
-            }
-        } 
-        if (peoplesList.Count == 1)
-        {
-            return ++ans;
+            if(people[left] + people[right] <= limit) left++;
+            
+            right--;
+            ans++;
         }
-        return ans;
+
+        return ans++;
     }
 }
