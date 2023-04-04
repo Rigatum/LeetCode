@@ -3,22 +3,22 @@ public class Solution
     public int PartitionString(string s) 
     {
         int ans = 0;
-        Dictionary<char,int> dict = new();
+        List<char> list = new();
 
         foreach (var letter in s)
         {
-            if (dict.Count != 0 && dict.ContainsKey(letter))
+            if (list.Count != 0 && list.Contains(letter))
             {
-                dict.Clear();
-                dict.Add(letter, 0);
+                list.Clear();
+                list.Add(letter);
                 ans++;
                 continue;
             }
             else
-                dict.Add(letter, 0);
+                list.Add(letter);
         }
 
-        if (dict.Count > 0)
+        if (list.Count > 0)
             return ++ans;
         else    
             return ans;
