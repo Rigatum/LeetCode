@@ -4,9 +4,8 @@ public class Solution
     {
         int ans = 0;
         Dictionary<char,int> dict = new();
-        char[] carr = s.ToCharArray();
 
-        foreach (var letter in carr)
+        foreach (var letter in s)
         {
             if (dict.Count != 0 && dict.ContainsKey(letter))
             {
