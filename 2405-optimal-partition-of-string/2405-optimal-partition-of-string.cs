@@ -7,20 +7,14 @@ public class Solution
 
         foreach (var letter in s)
         {
-            if (list.Count != 0 && list.Contains(letter))
+            if (list.Contains(letter))
             {
                 list.Clear();
-                list.Add(letter);
                 ans++;
-                continue;
             }
-            else
-                list.Add(letter);
+            list.Add(letter);
         }
 
-        if (list.Count > 0)
-            return ++ans;
-        else    
-            return ans;
+        return ++ans;
     }
 }
