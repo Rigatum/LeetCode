@@ -2,18 +2,18 @@ public class Solution
 {
     public int NumJewelsInStones(string jewels, string stones) 
     {
-        Dictionary<char, int> dict = new Dictionary<char, int>();
+        HashSet<char> hashset = new HashSet<char>();
         int ans = 0;
         for (int i = 0; i < jewels.Length; i++)
         {
-            dict.Add(jewels[i], i);
+            hashset.Add(jewels[i]);
         }
 
         foreach (var item in stones)
         {
-            if (dict.ContainsKey(item))
+            if (hashset.Contains(item))
                 ans++;
         }
-        return ans; 
+        return ans;
     }
 }
