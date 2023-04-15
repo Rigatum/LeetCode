@@ -5,22 +5,15 @@ public class Solution
         int slow = 0;
         int fast = 0;
         int k = 0;
-        while (fast < t.Length)
+        while (fast < t.Length && k != s.Length)
         {
-            if (k == s.Length)
-                return true;
             if (s[slow] == t[fast])
             {
                 k++;
-                fast++;
                 slow++;
             }
-            else
-                fast++;
+            fast++;
         }
-        if (k == s.Length)
-            return true;
-        else
-            return false;
+        return k == s.Length;
     }
 }
