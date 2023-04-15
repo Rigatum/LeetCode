@@ -2,34 +2,29 @@ public class Solution
 {
     public int[] SortArrayByParityII(int[] nums) 
     {
-        int slow = 0;
-        int fast = 1;
-        while (fast < nums.Length && slow < nums.Length)
+        int even = 0;
+        int odd = 1;
+        while (even < nums.Length && odd < nums.Length)
         {
-            if (isSwap(nums[slow], slow, nums[fast], fast))
-            {
-                swap(nums, slow, fast);
-                slow++;
-                fast = slow;
-            }
-            else if ((nums[slow] % 2 == 0 && slow % 2 == 0) || (nums[slow] % 2 != 0 && slow % 2 != 0 ))
-                slow++;
-            fast++;
+            if (isEven(nums[even]))
+                even += 2;
+            else if (!isEven(nums[odd]))
+                odd += 2;
+            else swap (nums, even, odd);
         }
 
         return nums;
-        void swap(int[] nums, int slow, int fast)
+
+        void swap(int[] nums, int even, int odd)
         {
-            int temp = nums[slow];
-            nums[slow] = nums[fast];
-            nums[fast] = temp;
+            int temp = nums[even];
+            nums[even] = nums[odd];
+            nums[odd] = temp;
         }
 
-        bool isSwap(int numi, int indexi, int numj, int indexj)
+        bool isEven(int num)
         {  
-            if ((numi % 2 != 0 && indexi % 2 == 0) && (numj % 2 == 0 && indexj % 2 != 0))
-                return true;
-            else if ((numi % 2 == 0 & indexi % 2 != 0) && (numj % 2 != 0 && indexj % 2 == 0))
+            if (num % 2 == 0)
                 return true;
             else
                 return false;
