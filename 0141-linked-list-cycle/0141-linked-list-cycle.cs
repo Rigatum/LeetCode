@@ -13,17 +13,16 @@ public class Solution
 {
     public bool HasCycle(ListNode head) 
     {
-        HashSet<ListNode> hashSet = new HashSet<ListNode>();
-        while (head != null)
+        var fast = head;
+        var slow = head;
+        while (head != null && slow.next != null 
+               && fast.next != null && fast.next.next != null)
         {
-          if (hashSet.Contains(head))
-              return true;  
-          else
-          {
-              hashSet.Add(head);
-              head = head.next;
-          }
-              
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast)
+                return true;
+            head = head.next;
         }
         return false;
     }
