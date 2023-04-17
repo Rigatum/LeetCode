@@ -11,16 +11,13 @@ public class Solution
                 if(nums[slow] == j)
                 {
                     slow++;
-                    fast++;
                 }
                 else if(nums[slow] != j && nums[fast] == j)
                 {
                     swap(nums, slow, fast);
                     slow++;
-                    fast++;
                 }
-                else
-                    fast++;
+                fast++;
             }
         }
 
