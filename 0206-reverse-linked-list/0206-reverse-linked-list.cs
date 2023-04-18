@@ -13,13 +13,15 @@ public class Solution
 {
     public ListNode ReverseList(ListNode head) 
     {
-        ListNode ans = null;
+        ListNode prev = null;
         
         while (head != null)
         {
-            ans = new ListNode(head.val, ans);
-            head = head.next;
+            var next = head.next; 
+            head.next = prev;
+            prev = head;
+            head = next;
         }
-        return ans;
+        return prev;
     }
 }
