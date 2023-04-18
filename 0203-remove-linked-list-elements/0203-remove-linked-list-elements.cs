@@ -13,19 +13,17 @@ public class Solution
 {
     public ListNode RemoveElements(ListNode head, int val) 
     {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode prev = dummy;
-        ListNode curr = head;
+        var dummy = head;
         
-        while (curr != null)
+        while (dummy != null && dummy.next != null)
         {
-            if (curr.val == val)
-                prev.next = curr.next;
+            if (dummy.next.val == val)
+                dummy.next = dummy.next.next;
             else
-                prev = curr;
-            curr = curr.next;
+                dummy = dummy.next;
         }
-        return dummy.next;
+        if (head != null && head.val == val)
+            head = head.next;
+        return head;
     }
 }
