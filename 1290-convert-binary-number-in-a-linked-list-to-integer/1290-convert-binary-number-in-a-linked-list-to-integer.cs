@@ -31,7 +31,6 @@ public class Solution
             sum += prev.val * (int)Math.Pow(2, i);
             i++;
             prev = prev.next;
-            Console.Write(sum + ",");
         }
         return sum;
     }
