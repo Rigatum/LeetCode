@@ -22,7 +22,7 @@ public class Solution
         
         while (queue.Count > 0)
         {            
-            int length = queue.Count();
+            int length = queue.Count;
             for (int i = 0; i < length; i++)
             {
                 sum += queue.Peek().val;
