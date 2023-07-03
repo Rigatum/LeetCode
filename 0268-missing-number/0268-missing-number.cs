@@ -2,7 +2,6 @@ public class Solution
 {
     public int MissingNumber(int[] nums) 
     {
-        int missingNumber = nums.Length;
         int sum1 = nums.Length;
         int sum2 = 0;
         
