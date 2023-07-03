@@ -2,15 +2,13 @@ public class Solution
 {
     public int MissingNumber(int[] nums) 
     {
-        HashSet<int> hs = new(nums);
+        int missingNumber = nums.Length;
         
-        for (int i = 0; i < nums.Length + 1; i++)
+        for (int i = 0; i < nums.Length; i++)
         {
-            if (!hs.Contains(i))
-            {
-                return i;
-            }
+            missingNumber ^= i ^ nums[i];
         }
-        return -1;
+        
+        return missingNumber;
     }
 }
