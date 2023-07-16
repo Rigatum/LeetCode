@@ -2,13 +2,16 @@ public class Solution
 {
     public int[] GetConcatenation(int[] nums) 
     {
-        var ans = new int[nums.Length * 2];
-        int middle = nums.Length;
+        int x = 2;
+        int i = 0;
+        var ans = new int[nums.Length * x];
         
-        for (int i = 0; i < nums.Length; i++)
+        for (int j = 0; j < ans.Length; j++)
         {
-            ans[i] = nums[i];
-            ans[i + middle] = nums[i];
+            if (i == nums.Length)
+                i = 0;
+            ans[j] = nums[i];
+            i++;
         }
         
         return ans;
